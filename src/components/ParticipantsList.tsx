@@ -6,43 +6,43 @@ interface ParticipantsListProps {
 }
 
 export function ParticipantsList({ participants, highlightName }: ParticipantsListProps) {
-  const highlightRef = useRef<HTMLLIElement>(null)
+  const highlightRef = useRef<HTMLSpanElement>(null)
 
   useEffect(() => {
-    highlightRef.current?.scrollIntoView({ block: 'nearest', behavior: 'smooth' })
+    highlightRef.current?.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' })
   }, [highlightName])
 
   const firstHighlightIndex = highlightName !== null ? participants.indexOf(highlightName) : -1
 
   return (
-    <aside
+    <section
       aria-label="Lista de participantes do sorteio"
-      className="hidden max-h-[80dvh] w-72 shrink-0 flex-col overflow-hidden rounded-3xl border border-white/20 bg-white/10 p-5 shadow-2xl backdrop-blur-xl lg:flex"
+      className="flex max-h-28 w-full max-w-3xl shrink-0 flex-col overflow-hidden rounded-2xl border border-white/20 bg-white/10 px-4 py-3 shadow-2xl backdrop-blur-xl sm:max-h-32"
     >
-      <p className="text-sm font-semibold uppercase tracking-widest text-white/70">Participantes</p>
-      <p className="mb-4 text-xs text-white/50">
-        {participants.length} {participants.length === 1 ? 'pessoa na lista' : 'pessoas na lista'}
+      <p className="mb-2 shrink-0 text-center text-xs font-semibold uppercase tracking-widest text-white/60">
+        Participantes ({participants.length})
       </p>
 
-      <ul className="min-h-0 flex-1 space-y-1 overflow-y-auto pr-1">
+      <div className="flex min-h-0 flex-1 flex-wrap content-start justify-center gap-1.5 overflow-y-auto">
         {participants.map((name, index) => {
           const isHighlighted = highlightName !== null && name === highlightName
           const isScrollTarget = index === firstHighlightIndex
 
           return (
-            <li
+            <span
               key={index}
               ref={isScrollTarget ? highlightRef : undefined}
-              className={`flex items-baseline gap-2 rounded-lg px-2 py-1.5 text-sm transition-colors duration-150 ${
-                isHighlighted ? 'bg-brand-vibrant/40 font-semibold text-white' : 'text-white/80'
+              className={`h-fit rounded-full px-3 py-1 text-xs transition-colors duration-150 sm:text-sm ${
+                isHighlighted
+                  ? 'bg-brand-vibrant font-semibold text-white shadow-[0_0_12px_rgba(139,61,255,0.7)]'
+                  : 'bg-white/10 text-white/75'
               }`}
             >
-              <span className="shrink-0 text-xs tabular-nums text-white/40">{index + 1}.</span>
-              <span className="truncate">{name}</span>
-            </li>
+              {name}
+            </span>
           )
         })}
-      </ul>
-    </aside>
+      </div>
+    </section>
   )
 }
