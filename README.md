@@ -1,5 +1,7 @@
 # Sorteador UniÚnica
 
+🔗 **Acesse online:** https://italohenriquemarquescampos.github.io/sorteador-uniunica/
+
 Sistema web de sorteio de nomes do Centro Universitário Única. Upload de uma lista em CSV, um clique em **SORTEAR** e o resultado aparece em destaque, com animação e confete.
 
 Todo o processamento acontece **no navegador**: o arquivo CSV nunca é enviado para nenhum servidor, não é salvo em banco de dados nem em `localStorage`. Ao atualizar ou fechar a página, a lista desaparece.
@@ -34,6 +36,24 @@ npm run preview
 ```
 
 O build final fica em `dist/` e pode ser hospedado em qualquer serviço de arquivos estáticos (Netlify, Vercel, GitHub Pages, servidor institucional, etc.) — não precisa de servidor Node em produção.
+
+## Deploy (GitHub Pages)
+
+O site publicado (https://italohenriquemarquescampos.github.io/sorteador-uniunica/) é servido pela branch `gh-pages` deste repositório. O `vite.config.ts` já define `base: '/sorteador-uniunica/'` no build de produção para os assets funcionarem nesse subcaminho.
+
+Para atualizar o site após novas mudanças:
+
+```bash
+npm run build
+touch dist/.nojekyll
+cd dist
+git init -q
+git add -A
+git commit -q -m "Deploy"
+git branch -M gh-pages
+git remote add origin https://github.com/ItaloHenriqueMarquesCampos/sorteador-uniunica.git
+git push -f origin gh-pages
+```
 
 ## Testes automatizados
 
