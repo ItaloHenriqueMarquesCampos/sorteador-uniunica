@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-brand-primary: #6c2bd9;
+  --color-brand-dark: #24103f;
+  --color-brand-deep: #160a2b;
+  --color-brand-vibrant: #8b3dff;
+  --color-brand-light: #f5f5f7;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    margin: 0;
+    width: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    overflow: hidden;
+    background-color: var(--color-brand-deep);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-vibrant);
+    outline-offset: 2px;
+  }
+}
+
+@keyframes reel-tick {
+  from {
+    opacity: 0.3;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes result-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-reel-tick {
+  animation: reel-tick 80ms ease-out;
+}
+
+.animate-result-in {
+  animation: result-in 420ms cubic-bezier(0.16, 1, 0.3, 1);
+}

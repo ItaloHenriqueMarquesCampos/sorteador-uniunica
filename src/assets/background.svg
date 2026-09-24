@@ -1,0 +1,51 @@
+<svg viewBox="0 0 1600 900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="base" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#160A2B" />
+      <stop offset="50%" stop-color="#2C1450" />
+      <stop offset="100%" stop-color="#4A1E8A" />
+    </linearGradient>
+    <radialGradient id="glow1" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#8B3DFF" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#8B3DFF" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow2" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#6C2BD9" stop-opacity="0.7" />
+      <stop offset="100%" stop-color="#6C2BD9" stop-opacity="0" />
+    </radialGradient>
+    <radialGradient id="glow3" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#B47CFF" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#B47CFF" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <rect width="1600" height="900" fill="url(#base)" />
+
+  <circle cx="1150" cy="300" r="520" fill="url(#glow1)" />
+  <circle cx="350" cy="600" r="480" fill="url(#glow2)" />
+  <circle cx="800" cy="450" r="380" fill="url(#glow3)" />
+
+  <g opacity="0.18" stroke="#FFFFFF" stroke-width="2" fill="none">
+    <circle cx="1150" cy="300" r="300" />
+    <circle cx="1150" cy="300" r="210" />
+    <circle cx="300" cy="650" r="240" />
+  </g>
+
+  <g opacity="0.22" fill="#FFFFFF">
+    <polygon points="1380,700 1580,610 1580,820" />
+    <polygon points="40,150 220,70 220,220" />
+    <circle cx="1450" cy="150" r="10" />
+    <circle cx="150" cy="450" r="8" />
+    <circle cx="700" cy="120" r="6" />
+  </g>
+
+  <g opacity="0.16" fill="#B47CFF">
+    <polygon points="850,0 1080,0 900,260" />
+    <polygon points="0,480 200,390 300,650 60,780" />
+  </g>
+
+  <g opacity="0.10" stroke="#FFFFFF" stroke-width="1.5">
+    <line x1="0" y1="260" x2="1600" y2="120" />
+    <line x1="0" y1="700" x2="1600" y2="820" />
+  </g>
+</svg>
