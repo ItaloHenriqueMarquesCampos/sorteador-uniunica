@@ -1,5 +1,7 @@
 # Sorteador UniÚnica
 
+[![CI](https://github.com/ItaloHenriqueMarquesCampos/sorteador-uniunica/actions/workflows/ci.yml/badge.svg)](https://github.com/ItaloHenriqueMarquesCampos/sorteador-uniunica/actions/workflows/ci.yml)
+
 🔗 **Acesse online:** https://italohenriquemarquescampos.github.io/sorteador-uniunica/
 
 Sistema web de sorteio de nomes do Centro Universitário Única. Upload de uma lista em CSV, um clique em **SORTEAR** e o resultado aparece em destaque, com animação e confete.
@@ -65,6 +67,8 @@ Os testes cobrem as funções críticas:
 
 - `src/utils/csvParser.ts` — detecção de coluna de nome, delimitadores (`,` e `;`), BOM, acentos, duplicados, listas grandes, mensagens de erro.
 - `src/utils/randomDraw.ts` — sorteio sem viés de módulo via `crypto.getRandomValues`, distribuição uniforme, casos-limite.
+
+A cada push na `main` e a cada pull request, o GitHub Actions roda o lint, os testes e o build de produção ([`.github/workflows/ci.yml`](.github/workflows/ci.yml)). O selo no topo deste README mostra o resultado mais recente.
 
 ## Formato do arquivo CSV
 
